@@ -20,10 +20,12 @@ ENV NODE_ENV=production
 # This way we do not have to type out full file paths but can use relative paths based on the working directory.
 WORKDIR /app
 
+
 # we need to do is to add our source code into the image.
 # The COPY command takes all the files located in the current directory and copies them into the image.
 COPY . .
 
+RUN npm ci
 # Now, all we have to do is to tell Docker what command we want to run when our image is run inside of a container. 
 # We do this with the CMD command.
 CMD [ "node", "index.js" ]
